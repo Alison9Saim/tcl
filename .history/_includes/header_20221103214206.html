@@ -30,7 +30,7 @@
 
               <!-- About -->
               <li class="nav-item {% if page.permalink == '/' %}active{% endif %}">
-                <a class="nav-link" href="{{ '/services' | relative_url }}"> Services
+                <a class="nav-link" href="{{ '/' | relative_url }}"> {{ about_title }}
                   {%- if page.permalink == '/' -%}
                   <span class="sr-only">(current)</span>
                   {%- endif -%}
@@ -40,24 +40,15 @@
 
               <!-- Contact -->
               <li class="nav-item {% if page.permalink == '/' %}active{% endif %}">
-                <a class="nav-link" href="{{ '/about' | relative_url }}"> About
-                  {%- if page.permalink == '/' -%}
-                  <span class="sr-only">(current)</span>
-                  {%- endif -%}
-                </a>
-              </li>
-
-               <!-- Contact -->
-               <li class="nav-item {% if page.permalink == '/' %}active{% endif %}">
-                <a class="nav-link" href="{{ '/contact' | relative_url }}"> Contact Info
+                <a class="nav-link" href="{{ '/blog' | relative_url }}"> Contact
                   {%- if page.permalink == '/contact' -%}
                   <span class="sr-only">(current)</span>
                   {%- endif -%}
                 </a>
               </li>
 
-
               {%- if site.enable_darkmode %}
+
               <!-- Toogle theme mode -->
               <li class="toggle-container">
                 <button id="light-toggle" title="Change theme">
@@ -66,8 +57,6 @@
                 </button>
               </li>
               {%- endif %}
-
-              
             </ul>
           </div>
         </div>

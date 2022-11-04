@@ -6,10 +6,8 @@
         <div class="container">
           {% if page.permalink != '/' -%}
           <a class="navbar-brand title font-weight-lighter" href="{{ site.baseurl }}/">
-           TCL Flooring Inc
+           TCL Floor Inc
           </a>
-
-
           {%- elsif site.enable_navbar_social -%}
           <!-- Social Icons -->
           <div class="navbar-brand social">
@@ -27,10 +25,15 @@
           <div class="collapse navbar-collapse text-right" id="navbarNav">
             <ul class="navbar-nav ml-auto flex-nowrap">
 
+              {%- for page in site.pages -%}
+                {% if page.permalink == '/' %}
+                  {% assign about_title = page.title %}
+                {% endif %}
+              {% endfor %}
 
               <!-- About -->
               <li class="nav-item {% if page.permalink == '/' %}active{% endif %}">
-                <a class="nav-link" href="{{ '/services' | relative_url }}"> Services
+                <a class="nav-link" href="{{ '/' | relative_url }}"> {{ about_title }}
                   {%- if page.permalink == '/' -%}
                   <span class="sr-only">(current)</span>
                   {%- endif -%}
@@ -40,24 +43,15 @@
 
               <!-- Contact -->
               <li class="nav-item {% if page.permalink == '/' %}active{% endif %}">
-                <a class="nav-link" href="{{ '/about' | relative_url }}"> About
-                  {%- if page.permalink == '/' -%}
-                  <span class="sr-only">(current)</span>
-                  {%- endif -%}
-                </a>
-              </li>
-
-               <!-- Contact -->
-               <li class="nav-item {% if page.permalink == '/' %}active{% endif %}">
-                <a class="nav-link" href="{{ '/contact' | relative_url }}"> Contact Info
+                <a class="nav-link" href="{{ '/blog' | relative_url }}"> Contact
                   {%- if page.permalink == '/contact' -%}
                   <span class="sr-only">(current)</span>
                   {%- endif -%}
                 </a>
               </li>
 
-
               {%- if site.enable_darkmode %}
+
               <!-- Toogle theme mode -->
               <li class="toggle-container">
                 <button id="light-toggle" title="Change theme">
@@ -66,8 +60,6 @@
                 </button>
               </li>
               {%- endif %}
-
-              
             </ul>
           </div>
         </div>
